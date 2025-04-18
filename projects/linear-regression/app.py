@@ -6,7 +6,8 @@ from sklearn.linear_model import LinearRegression
 # Load and train the model
 @st.cache_resource
 def load_model():
-    df = pd.read_csv("housing.csv")
+    url = "https://raw.githubusercontent.com/anurag1210/anurag-ml-journey/main/projects/linear-regression/housing.csv"
+    df = pd.read_csv(url)
     df['total_bedrooms'].fillna(df['total_bedrooms'].median(), inplace=True)
     X = df[['housing_median_age', 'total_rooms', 'total_bedrooms',
             'population', 'households', 'median_income']]
